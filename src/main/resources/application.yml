@@ -15,3 +15,11 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
+
+# 调用 A104527：按 openId 清理 SYSUSER（手机/邮箱/解绑/注销）
+# 27 侧接口就绪后把 enabled 改为 true，并填真实地址
+biz:
+  server:
+    enabled: ${BIZ_SERVER_ENABLED:false}
+    base-url: ${BIZ_SERVER_BASE_URL:}
+    clear-path: ${BIZ_SERVER_CLEAR_PATH:/api/wx/authorization/clear}
